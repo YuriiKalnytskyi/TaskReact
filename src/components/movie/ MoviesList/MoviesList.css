@@ -1,0 +1,13 @@
+.container{
+    width: 100%;
+    min-height: 500px;
+}
+.container-wrapper{
+    width: 1300px;
+    min-height: 500px;
+    margin: 0 auto;
+    background: #61dafb;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
