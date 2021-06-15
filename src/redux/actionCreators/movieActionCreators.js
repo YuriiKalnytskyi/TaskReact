@@ -1,4 +1,4 @@
-import {SET_MOVIE} from "../actionTypes";
+import {SET_MOVIE, SET_MOVIE_ID} from "../actionTypes";
 
 //import {getMovie} from "../../services/app";
 // export const fetchMovie=(page) => async (dispatch) => {
@@ -26,5 +26,18 @@ export const fetchMovie = (page)=>async (dispatch) => {
         console.log(e)
     }
 }
+export const fetchMovieId=(id) => async (dispatch) => {
+    try {
+        const resp = await getMovieId(id).then()
+        console.log(resp)
+        const data = await resp.data
+        console.log(data)
+        dispatch(setMovie(data))
+    }
+    catch (e) {
+        console.log(e)
+    }
+}
 
 export const setMovie = (payload) => ({type: SET_MOVIE, payload})
+export const getMovieId = (payload) => ({type: SET_MOVIE_ID, payload})

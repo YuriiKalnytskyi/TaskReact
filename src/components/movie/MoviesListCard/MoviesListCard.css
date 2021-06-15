@@ -1,6 +1,19 @@
-.movieCard{
+.movieCard_container{
     width: 300px;
     height: 500px;
     background: silver;
     border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px 0 30px  0;
+}
+.movieCard_img:hover{
+    transform: scale(0.9);
+}
+.movieCard_container:hover{
+    transform: scale(1.03);
+    box-shadow: 10px 10px 10px 0 red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

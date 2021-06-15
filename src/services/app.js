@@ -10,9 +10,11 @@ let axiosInstance = axios.create(options);
 
 const getMovie = (page)=>{
     return axiosInstance.get('discover/movie&page='+page)
-
+}
+const getMovieId = (id)=>{
+    return axiosInstance.get('/movie/'+id)
 }
 
 export {
-    getMovie
+    getMovie , getMovieId
 }
