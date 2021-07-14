@@ -3,5 +3,4 @@ import {movieReduser} from "./movieReduser";
 
 export const rootReducer = combineReducers({
     movies:movieReduser,
-    movie:movieReduser
 })

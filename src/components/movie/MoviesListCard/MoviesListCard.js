@@ -9,10 +9,11 @@ export default function MoviesListCard({item}) {
             <Link to={"/movie/"+item.id}>
 
             <div  className={'movieCard_img'}>
-                <PosterPreview img={item.poster_path}/>
+                <PosterPreview img={item.poster_path} alt={item.id}/>
             </div>
             <div className={"movieCard_title"}><p>{item.title}</p></div>
             </Link>
+
 
         </div>
     )

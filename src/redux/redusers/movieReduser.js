@@ -1,9 +1,10 @@
-import {SET_MOVIE, SET_MOVIE_ID} from "../actionTypes";
+import {SET_MOVIE, SET_MOVIE_ID, SET_VIDEO_ID , SEARCH} from "../actionTypes";
 
 
 const initialState={
     movies:{},
-    movie:{}
+    movie:{},
+    video:{}
 }
 export const movieReduser =(state=initialState , action)=>{
     switch (action.type) {
@@ -17,6 +18,18 @@ export const movieReduser =(state=initialState , action)=>{
             return{
                 ...state ,
                 movie: action.payload
+            }
+        }
+        case SET_VIDEO_ID:{
+            return{
+                ...state ,
+                video: action.payload
+            }
+        }
+        case SEARCH :{
+            return{
+                ...state ,
+                movies: action.payload
             }
         }
         default:return state

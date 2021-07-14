@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {fetchMovie} from "../../../redux";
+import {fetchMovie, fetchSearchMovie} from "../../../redux";
 import MoviesListCard from "../MoviesListCard/MoviesListCard";
 import './MoviesList.css'
+import Page from "../components/pagination/Page";
 
 
 export default function MoviesList() {
@@ -10,9 +11,10 @@ export default function MoviesList() {
     const {movies} = useSelector(({movies}) => (movies))
 
     let [page, setPage] = useState(1)
+    let [search, setSearch] = useState("")
 
 
-    const next = () => {
+    const next =() => {
         if (page < movies.total_pages) {
             setPage(++page)
         }
@@ -31,13 +33,20 @@ export default function MoviesList() {
 
 
     useEffect(() => {
-        dispatch(fetchMovie(page))
-    }, [dispatch, page])
-
-    console.log(movies)
+        if (search===''){
+            dispatch(fetchMovie(page))
+        }else {
+            dispatch(fetchSearchMovie(search))
+        }
+    }, [dispatch, page,search])
 
     return (
         <div className={"container"}>
+            <div className={'search'}>
+                <form>
+                    <input placeholder={"Search"} onChange={(event => setSearch(event.target.value) )}/>
+                </form>
+            </div>
             <div className={"container-wrapper"}>
                 {
                     movies.results &&
@@ -49,12 +58,8 @@ export default function MoviesList() {
                 }
             </div>
 
-            <div>
-                <button className={"btn"} onClick={first}>first</button>
-                <button className={"btn"} onClick={back}>back</button>
-                <samp>  {page}   </samp>
-                <button className={"btn"} onClick={next}>next</button>
-                <button className={"btn"} onClick={last}>last</button>
+            <div className={'pages'} >
+                <Page first={first} back={back} next={next} last={last} page={page}  />
             </div>
         </div>
     );

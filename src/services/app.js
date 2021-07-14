@@ -8,13 +8,22 @@ let options = {
 }
 let axiosInstance = axios.create(options);
 
-const getMovie = (page)=>{
-    return axiosInstance.get('discover/movie&page='+page)
+const getMovie = (page=1)=>{
+    return axiosInstance.get('discover/movie',{
+        params:{
+            page
+        }
+    })
 }
 const getMovieId = (id)=>{
     return axiosInstance.get('/movie/'+id)
 }
-
+const getVideoId = (id)=>{
+    return axiosInstance.get('/movie/'+id +'/videos')
+}
+const searchMovie = (text)=>{
+    return axiosInstance.get('search/movie?query='+text)
+}
 export {
-    getMovie , getMovieId
+    getMovie , getMovieId , getVideoId , searchMovie
 }

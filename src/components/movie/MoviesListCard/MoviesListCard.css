@@ -1,7 +1,7 @@
 .movieCard_container{
     width: 300px;
-    height: 500px;
-    background: silver;
+    height: 470px;
+    background: white;
     border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -16,4 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.movieCard_title{
+    padding-left: 30px;
 }
