@@ -7,7 +7,7 @@ export default function Header(){
         <div className={"header"}>
             <ul>
                 <li>
-                    <Link  to={"/movie"}><samp className={'info'}>Movie</samp></Link>
+                    <Link className={'info' } to={"/movie"}><span >Movie</span></Link>
                 </li>
             </ul>
             <div className={'user_info'}>

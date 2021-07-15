@@ -19,4 +19,9 @@
 }
 .movieCard_title{
     padding-left: 30px;
+    color: black;
+    font-size: 18px;
+}
+.link{
+    text-decoration: none;
 }
